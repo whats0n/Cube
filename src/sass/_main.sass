@@ -1,2 +1,49 @@
-.block
-  display: flex
+.cube
+	position: relative
+	overflow: hidden
+	height: 100vh
+	&__slide
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		&[data-state="prev"]
+			transform: translate3d(0, -100%, 0)
+			.cube__content
+				transform: translate3d(0,0,0) rotateX(90deg)
+				transform-origin: center bottom
+		&[data-state="next"]
+			transform: translate3d(0, 100%, 0)
+			.cube__content
+				transform: translate3d(0,0,0) rotateX(-90deg)
+				transform-origin: center top
+		&[data-state="active"]
+			&[data-direction="next"]
+				.cube__content
+					transform-origin: center top
+		&.is-animation
+			transition: transform 1s ease
+			.cube__content
+				transition: transform 1s ease
+	&__content
+		height: 100%
+
+		font-size: 40vh
+		text-align: center
+
+		transform: translate3d(0,0,0) rotateX(0)
+		transform-origin: center bottom
+
+.navigation
+	position: absolute
+	bottom: 30px
+	right: 30px
+	text-align: right
+	button
+		display: inline-block
+		vertical-align: top
+		padding: 10px 17px
+		border: 1px solid #333
+		color: #333
+		font-size: 18px

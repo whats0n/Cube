@@ -4,10 +4,32 @@ title: Index page
 {% extends "layouts/_layout.html" %}
 
 {% block content %}
-
+	
 
 	<div class="cube js-cube">
-		.cube__slide.js-cube-slide
+		<div class="cube__slide js-cube-slide">
+			<div class="cube__content" style="background: gold;">1</div>
+		</div>
+		<div class="cube__slide js-cube-slide">
+			<div class="cube__content" style="background: rebeccapurple;">2</div>
+		</div>
+		<div class="cube__slide js-cube-slide">
+			<div class="cube__content" style="background: green;">3</div>
+		</div>
+		<div class="cube__slide js-cube-slide">
+			<div class="cube__content" style="background: gold;">4</div>
+		</div>
+		<div class="cube__slide js-cube-slide">
+			<div class="cube__content" style="background: rebeccapurple;">5</div>
+		</div>
+		<div class="cube__slide js-cube-slide">
+			<div class="cube__content" style="background: green;">6</div>
+		</div>
+	</div>
+
+	<div class="navigation">
+		<button class="js-prev">prev</button>
+		<button class="js-next">next</button>
 	</div>
 
 {% endblock %}

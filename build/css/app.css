@@ -84,10 +84,89 @@ body {
   line-height: 1.4;
 }
 
-.block {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.cube {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.cube__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.cube__slide[data-state="prev"] {
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+
+.cube__slide[data-state="prev"] .cube__content {
+  -webkit-transform: translate3d(0, 0, 0) rotateX(90deg);
+  transform: translate3d(0, 0, 0) rotateX(90deg);
+  -webkit-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+
+.cube__slide[data-state="next"] {
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+
+.cube__slide[data-state="next"] .cube__content {
+  -webkit-transform: translate3d(0, 0, 0) rotateX(-90deg);
+  transform: translate3d(0, 0, 0) rotateX(-90deg);
+  -webkit-transform-origin: center top;
+  -ms-transform-origin: center top;
+  transform-origin: center top;
+}
+
+.cube__slide[data-state="active"][data-direction="next"] .cube__content {
+  -webkit-transform-origin: center top;
+  -ms-transform-origin: center top;
+  transform-origin: center top;
+}
+
+.cube__slide.is-animation {
+  transition: -webkit-transform 1s ease;
+  transition: transform 1s ease;
+  transition: transform 1s ease, -webkit-transform 1s ease;
+}
+
+.cube__slide.is-animation .cube__content {
+  transition: -webkit-transform 1s ease;
+  transition: transform 1s ease;
+  transition: transform 1s ease, -webkit-transform 1s ease;
+}
+
+.cube__content {
+  height: 100%;
+  font-size: 40vh;
+  text-align: center;
+  -webkit-transform: translate3d(0, 0, 0) rotateX(0);
+  transform: translate3d(0, 0, 0) rotateX(0);
+  -webkit-transform-origin: center bottom;
+  -ms-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+
+.navigation {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  text-align: right;
+}
+
+.navigation button {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 17px;
+  border: 1px solid #333;
+  color: #333;
+  font-size: 18px;
 }
 
 /*# sourceMappingURL=app.css.map */
